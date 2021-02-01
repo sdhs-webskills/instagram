@@ -14,20 +14,7 @@ window.onload = () => {
 	document.body.onclick = ({ target }) => {
 		if(!target.classList.contains("heart")) return false;
 
-		document.body.insertAdjacentHTML(
-			"beforeend",
-			"<div class=heart-animation><img src='images/heart_red.png'></div>"
-			);
-
-		target.src = "images/heart_red.png";
-
 		const heartSpan = target.parentNode.children[1];
-
-		heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
-
-		setTimeout(() => {
-			document.body.removeChild(document.querySelector(".heart-animation"));
-		}, 1350);
 
 		let contentIndex = null;
 
@@ -35,14 +22,30 @@ window.onload = () => {
 			if(element === target.parentNode.parentNode.parentNode) return contentIndex = index;
 		});
 
+		if(findFromLocalStorage(contentIndex) < 0) {
+			document.body.insertAdjacentHTML(
+				"beforeend",
+				"<div class=heart-animation><img src='images/heart_red.png'></div>"
+				);
 
-		if(findFromLocalStorage(contentIndex) < 0)
+			target.src = "images/heart_red.png";
+
+
+			heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
+
+			setTimeout(() => {
+				document.body.removeChild(document.querySelector(".heart-animation"));
+			}, 1350);
+
 			return setState({id: contentIndex});
+		};
 
 		const array = JSON.parse(localStorage.getItem("heart"))["id"];
 		array.splice(findFromLocalStorage(contentIndex), 1);
 
 		localStorage.setItem("heart", JSON.stringify({id: array}));
+
+		heartSpan.innerHTML = Number(heartSpan.innerHTML) - 1;
 
 		console.log(localStorage);
 	};
