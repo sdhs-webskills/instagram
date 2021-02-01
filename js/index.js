@@ -1,4 +1,12 @@
 window.onload = () => {
+	const hearts = document.querySelectorAll(".heart");
+	JSON.parse(localStorage.getItem("heart"))["id"].forEach(id => {
+		const heart = hearts[id];
+
+		heart.src = "images/heart_red.png";
+		heart.parentNode.children[1].innerHTML = Number(heart.parentNode.children[1].innerHTML) + 1;
+	});
+
 	const findFromLocalStorage = index => {
 		const ids = JSON.parse(localStorage.getItem("heart")) ?? {id: []};
 
