@@ -30,7 +30,6 @@ window.onload = () => {
 
 			target.src = "images/heart_red.png";
 
-
 			heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
 
 			setTimeout(() => {
@@ -46,7 +45,6 @@ window.onload = () => {
 		localStorage.setItem("heart", JSON.stringify({id: array}));
 
 		heartSpan.innerHTML = Number(heartSpan.innerHTML) - 1;
-
-		console.log(localStorage);
+		target.src = "images/heart.png";
 	};
 };
