@@ -37,7 +37,6 @@ window.onload = () => {
 				);
 
 			target.src = "images/heart_red.png";
-
 			heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
 
 			setTimeout(() => {
@@ -54,5 +53,36 @@ window.onload = () => {
 
 		heartSpan.innerHTML = Number(heartSpan.innerHTML) - 1;
 		target.src = "images/heart.png";
+	};
+
+	document.body.ondblclick = ({ target }) => {
+		if(!target.classList.contains("content-picture")) return false;
+
+		const content = target?.parentNode?.parentNode;
+		const heartImg = content.children[1].children[1].children[0];
+		const heartSpan = content.children[1].children[1].children[1];
+
+		let contentIndex = null;
+
+		[...document.querySelectorAll(".content")].forEach((element, index) => {
+			if(element === content) return contentIndex = index;
+		});
+
+		document.body.insertAdjacentHTML(
+			"beforeend",
+			"<div class=heart-animation><img src='images/heart_red.png'></div>"
+			);
+		
+		setTimeout(() => {
+			document.body.removeChild(document.querySelector(".heart-animation"));
+		}, 1350);
+
+
+		if(findFromLocalStorage(contentIndex) < 0) {			
+			heartImg.src = "images/heart_red.png";
+			heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
+
+			return setState({id: contentIndex});
+		};
 	};
 };
