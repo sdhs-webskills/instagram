@@ -14,10 +14,10 @@ window.onload = () => {
 		return ids["id"].findIndex(id => id === index);
 	};
 	const setState = (newState) => {
-		const todos = JSON.parse(localStorage.getItem("heart")) || {id: []};
-		todos["id"].push(newState["id"]);
+		const ids = JSON.parse(localStorage.getItem("heart")) || {id: []};
+		ids["id"].push(newState["id"]);
 
-		localStorage.setItem("heart", JSON.stringify(todos));
+		localStorage.setItem("heart", JSON.stringify(ids));
 	};
 	const heartAnimation = () => {
 		document.body.insertAdjacentHTML(
