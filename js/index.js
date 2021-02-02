@@ -20,6 +20,12 @@ window.onload = function() {
             const likeCount = activeMenus[index].querySelectorAll("span")[0];
             
             likeCount.innerHTML = Number(likeCount.innerHTML) + 1;
+
+            localStorage.setItem("index",JSON.stringify(index));
+            localStorage.getItem("index",heart);
+
+            console.log(localStorage.getItem("index", JSON.stringify(heart)));
         });
     });
+
 };
