@@ -1,6 +1,7 @@
 window.onload = () => {
 	const hearts = document.querySelectorAll(".heart");
-	JSON.parse(localStorage.getItem("heart"))["id"].forEach(id => {
+	const ids = JSON.parse(localStorage.getItem("heart")) ?? {id: []};
+	ids["id"].forEach(id => {
 		const heart = hearts[id];
 
 		heart.src = "images/heart_red.png";
@@ -32,18 +33,23 @@ window.onload = () => {
 				);
 		}, 1350);
 	};
+	const getContentIndex = (content) => {
+		let contentIndex;
+		
+		[...document.querySelectorAll(".content")].forEach((element, index) => {
+			if(element === content)
+				return contentIndex = index;
+		});
 
+		return contentIndex;
+	};
 
 	document.body.onclick = ({ target }) => {
 		if(!target.classList.contains("heart")) return false;
 
+		const content = target?.parentNode?.parentNode?.parentNode;
 		const heartSpan = target.parentNode.children[1];
-
-		let contentIndex = null;
-
-		[...document.querySelectorAll(".content")].forEach((element, index) => {
-			if(element === target.parentNode.parentNode.parentNode) return contentIndex = index;
-		});
+		const contentIndex = getContentIndex(content);
 
 		if(findFromLocalStorage(contentIndex) < 0) {
 			heartAnimation();
@@ -69,12 +75,7 @@ window.onload = () => {
 		const content = target?.parentNode?.parentNode;
 		const heartImg = content.children[1].children[1].children[0];
 		const heartSpan = content.children[1].children[1].children[1];
-
-		let contentIndex = null;
-
-		[...document.querySelectorAll(".content")].forEach((element, index) => {
-			if(element === content) return contentIndex = index;
-		});
+		const contentIndex = getContentIndex(content);
 
 		heartAnimation();
 
