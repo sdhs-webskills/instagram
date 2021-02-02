@@ -18,6 +18,21 @@ window.onload = () => {
 
 		localStorage.setItem("heart", JSON.stringify(todos));
 	};
+	const heartAnimation = () => {
+		document.body.insertAdjacentHTML(
+			"beforeend",
+			`<div class=heart-animation>
+			<img src='images/heart_red.png'>
+			</div>`
+			);
+
+		setTimeout(() => {
+			document.body.removeChild(
+				document.querySelector(".heart-animation")
+				);
+		}, 1350);
+	};
+
 
 	document.body.onclick = ({ target }) => {
 		if(!target.classList.contains("heart")) return false;
@@ -31,17 +46,10 @@ window.onload = () => {
 		});
 
 		if(findFromLocalStorage(contentIndex) < 0) {
-			document.body.insertAdjacentHTML(
-				"beforeend",
-				"<div class=heart-animation><img src='images/heart_red.png'></div>"
-				);
+			heartAnimation();
 
 			target.src = "images/heart_red.png";
 			heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
-
-			setTimeout(() => {
-				document.body.removeChild(document.querySelector(".heart-animation"));
-			}, 1350);
 
 			return setState({id: contentIndex});
 		};
@@ -68,15 +76,7 @@ window.onload = () => {
 			if(element === content) return contentIndex = index;
 		});
 
-		document.body.insertAdjacentHTML(
-			"beforeend",
-			"<div class=heart-animation><img src='images/heart_red.png'></div>"
-			);
-		
-		setTimeout(() => {
-			document.body.removeChild(document.querySelector(".heart-animation"));
-		}, 1350);
-
+		heartAnimation();
 
 		if(findFromLocalStorage(contentIndex) < 0) {			
 			heartImg.src = "images/heart_red.png";
