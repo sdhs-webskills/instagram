@@ -3,18 +3,20 @@ window.onload = () => {
 	const ids = JSON.parse(localStorage.getItem("heart")) ?? {id: []};
 	ids["id"].forEach(id => {
 		const heart = hearts[id];
+		const heartSpan = heart.parentNode.children[1];
 
 		heart.src = "images/heart_red.png";
-		heart.parentNode.children[1].innerHTML = Number(heart.parentNode.children[1].innerHTML) + 1;
+		heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
 	});
 
+	const parseLocalStorate = () => JSON.parse(localStorage.getItem("heart")) ?? {id: []};
 	const findFromLocalStorage = index => {
-		const ids = JSON.parse(localStorage.getItem("heart")) ?? {id: []};
+		const ids = parseLocalStorate();
 
 		return ids["id"].findIndex(id => id === index);
 	};
 	const setState = (newState) => {
-		const ids = JSON.parse(localStorage.getItem("heart")) || {id: []};
+		const ids = parseLocalStorate();
 		ids["id"].push(newState["id"]);
 
 		localStorage.setItem("heart", JSON.stringify(ids));
@@ -60,7 +62,7 @@ window.onload = () => {
 			return setState({id: contentIndex});
 		};
 
-		const array = JSON.parse(localStorage.getItem("heart"))["id"];
+		const array = parseLocalStorate()["id"];
 		array.splice(findFromLocalStorage(contentIndex), 1);
 
 		localStorage.setItem("heart", JSON.stringify({id: array}));
