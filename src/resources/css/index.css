@@ -47,6 +47,14 @@ section{ user-select: none; }
 }
 #contents::-webkit-scrollbar { display: none; }
 
+#content-line-box{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	user-select: none;
+	overflow-y: scroll;
+}
+#content-line-box::-webkit-scrollbar { display: none; }
 .content-line{ width: calc(100%/3); }
 .content-line:nth-of-type(odd) { margin: 10px; }
 .content-line:nth-of-type(even) { margin-top: 10px; }
