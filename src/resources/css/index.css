@@ -35,17 +35,15 @@ section{ user-select: none; }
 }
 
 #contents{
-	width: 80%;
-	height: 90%;
-	margin-left: 10%;
+	width: 100%;
+	height: 85%;
 	display: flex;
+	flex-direction: column;
 	/*background: #282A34;*/
-	background: #3C3F51;
-	color: white;
-	user-select: none;
-	overflow-y: scroll;
+	/*background: #3C3F51;*/
+	color: black;
 }
-#contents::-webkit-scrollbar { display: none; }
+#contents h2{ height: 5%; }
 
 #content-line-box{
 	width: 100%;
