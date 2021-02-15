@@ -8,6 +8,12 @@
 </head>
 <body>
 	<article id="wrap">
+        <section id="menu">
+            <div id="button-box">
+                <button id="login-button">로그인</button>
+                <button id="register-button">회원가입</button>
+            </div>
+        </section>
 		<section id="content">
             <section id="stories">
                 <h2>Stories</h2>
