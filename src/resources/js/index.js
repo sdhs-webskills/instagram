@@ -87,3 +87,13 @@ document.body.ondblclick = ({ target }) => {
         return setState({id: contentIndex});
     };
 };
+
+const $loginButton = document.querySelector("#login-button");
+const $registerButton = document.querySelector("#register-button");
+
+$loginButton.addEventListener("click", () => {
+    location.href = "../src/pages/user/account/login.php";
+});
+$registerButton.addEventListener("click", () => {
+    location.href = "../src/pages/user/account/register.php";
+});
