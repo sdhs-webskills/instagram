@@ -5,7 +5,7 @@ window.onload = () => {
         const heart = hearts[id];
         const heartSpan = heart.parentNode.children[1];
 
-        heart.src = "images/heart_red.png";
+        heart.src = "resources/images/heart_red.png";
         heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
     });
 
@@ -25,7 +25,7 @@ window.onload = () => {
         document.body.insertAdjacentHTML(
             "beforeend",
             `<div class=heart-animation>
-			<img src='images/heart_red.png'>
+			<img src='resources/images/heart_red.png'>
 			</div>`
         );
 
@@ -56,7 +56,7 @@ window.onload = () => {
         if(findFromLocalStorage(contentIndex) < 0) {
             heartAnimation();
 
-            target.src = "images/heart_red.png";
+            target.src = "resources/images/heart_red.png";
             heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
 
             return setState({id: contentIndex});
@@ -68,7 +68,7 @@ window.onload = () => {
         localStorage.setItem("heart", JSON.stringify({id: array}));
 
         heartSpan.innerHTML = Number(heartSpan.innerHTML) - 1;
-        target.src = "images/heart.png";
+        target.src = "resources/images/heart.png";
     };
 
     document.body.ondblclick = ({ target }) => {
@@ -82,7 +82,7 @@ window.onload = () => {
         heartAnimation();
 
         if(findFromLocalStorage(contentIndex) < 0) {
-            heartImg.src = "images/heart_red.png";
+            heartImg.src = "resources/images/heart_red.png";
             heartSpan.innerHTML = Number(heartSpan.innerHTML) + 1;
 
             return setState({id: contentIndex});
