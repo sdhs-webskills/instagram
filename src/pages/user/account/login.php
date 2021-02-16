@@ -1,7 +1,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>register</title>
+    <title>login</title>
     <style>
         *{ margin: 0; padding: 0;}
         body{ background: #ededed; }
