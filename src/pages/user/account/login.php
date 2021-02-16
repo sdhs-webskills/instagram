@@ -7,12 +7,13 @@
         body{ background: #ededed; }
     </style>
     <link rel="stylesheet" href="../../../resources/css/form.css">
+    <script src="../../../resources/js/login.js" defer></script>
 </head>
 <body>
-<form action="../../../action/login.php" method="POST">
-    <input type="text" name="email" class="form-first-input" placeholder="이메일" autocomplete="off">
-    <input type="password" name="password" class="form-last-input" placeholder="비밀번호">
-    <input type="submit" value="로그인" class="form-button">
-</form>
+    <form action="../../../action/login.php" method="POST">
+        <input type="text" name="email" class="form-first-input" placeholder="이메일" autocomplete="off">
+        <input type="password" name="password" class="form-last-input" placeholder="비밀번호">
+        <input type="submit" value="로그인" class="form-button">
+    </form>
 </body>
 </html>
