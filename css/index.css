@@ -24,9 +24,9 @@ section{ user-select: none; }
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
-#content > section{ padding: 10px; }
+#content > section{ padding: 10px; margin: auto; }
 
-#stories{ height: 15%; }
+#stories{ width: 90%; height: 15%; }
 
 #contents{
 	width: 90%;
