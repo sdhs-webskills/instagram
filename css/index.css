@@ -14,14 +14,8 @@ section{ user-select: none; }
 	background: lightgray;
 }
 
-#menu{
-	width: 20%;
-	height: 100%;
-}
-#button-box{
-	width: 500%;
-	height: 10%;
-}
+#menu{ width: 20%; height: 100%; }
+#button-box{ width: 500%; height: 10%; }
 
 #content{
 	width: 80%;
@@ -30,9 +24,9 @@ section{ user-select: none; }
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
-#content > section{ padding: 10px; }
+#content > section{ padding: 10px; margin: auto; }
 
-#stories{ height: 15%; }
+#stories{ width: 90%; height: 15%; }
 
 #contents{
 	width: 90%;
