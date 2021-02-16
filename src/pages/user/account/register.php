@@ -7,7 +7,7 @@
         body{ background: #ededed; }
     </style>
     <link rel="stylesheet" href="../../../resources/css/form.css">
-    <script src="../../../resources/js/register.js"></script>
+    <script src="../../../resources/js/register.js" defer></script>
 </head>
 <body>
     <form action="../../../action/register.php" method="POST">
