@@ -14,14 +14,8 @@ section{ user-select: none; }
 	background: lightgray;
 }
 
-#menu{
-	width: 20%;
-	height: 100%;
-}
-#button-box{
-	width: 500%;
-	height: 10%;
-}
+#menu{ width: 20%; height: 100%; }
+#button-box{ width: 500%; height: 10%; }
 
 #content{
 	width: 80%;
