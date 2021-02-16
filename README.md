@@ -24,11 +24,12 @@
 - 관리자 권한 추가(타인의 게시물 수정 & 삭제 가능, 유저 관리 기능)
 
 ## 검색 키워드
+- html data-set
 - css animation
 - javascript localStorage
 - php mysqli
 
 ## 추가정보
-- 브라우저 스팩 : 크롬 88이상
-- 자바스크립트 문법 : ECMAScript 8이상
+- 브라우저 스팩 : 크롬 80이상
+- 자바스크립트 문법 : ECMAScript 6이상
 - php 버전 : 7이상
