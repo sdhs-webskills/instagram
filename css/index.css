@@ -14,8 +14,18 @@ section{ user-select: none; }
 	background: lightgray;
 }
 
-#menu{ width: 20%; height: 100%; }
-#button-box{ width: 500%; height: 10%; }
+#menu{
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#button-box{ display: flex; }
+#button-box > button{
+	padding: 10px;
+	margin: 5px;
+}
 
 #content{
 	width: 80%;
