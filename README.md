@@ -24,6 +24,7 @@
 - 관리자 권한 추가(타인의 게시물 수정 & 삭제 가능, 유저 관리 기능)
 
 ## 검색 키워드
+- html data-set
 - css animation
 - javascript localStorage
 - php mysqli
