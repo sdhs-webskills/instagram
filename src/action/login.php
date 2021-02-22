@@ -11,6 +11,7 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 if($_SERVER["REQUEST_METHOD"] !== "POST") header("Location: http://localhost/instagram/src/main.php");
 
 extract($_POST);
+
 $result = DB::fetch("select * from user_info where email = ? and password = ?", array($email, md5($password)));
 
 $_SESSION["user"] = serialize(new User($result[0], $result[1], $result[2], $result[3]));
