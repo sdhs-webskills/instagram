@@ -1,3 +1,11 @@
+<?php
+    include_once("model/user.php");
+
+    if(session_status() == PHP_SESSION_NONE) session_start();
+
+    $user = unserialize($_SESSION["user"]);
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
