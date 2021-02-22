@@ -93,10 +93,14 @@ document.body.ondblclick = ({ target }) => {
 
 const $loginButton = document.querySelector("#login-button");
 const $registerButton = document.querySelector("#register-button");
+const $logoutButton = document.querySelector("#logout-button");
 
 $loginButton?.addEventListener("click", () => {
     location.href = "../src/pages/user/account/login.php";
 });
 $registerButton?.addEventListener("click", () => {
     location.href = "../src/pages/user/account/register.php";
+});
+$logoutButton?.addEventListener("click", () => {
+    location.href = "../src/action/logout.php";
 });
