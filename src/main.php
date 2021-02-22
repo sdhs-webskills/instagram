@@ -3,7 +3,10 @@
 
     if(session_status() == PHP_SESSION_NONE) session_start();
 
-    $user = unserialize($_SESSION["user"]);
+    $user = null;
+
+    if(isset($_SESSOIN["user"]))
+        $user = unserialize($_SESSION["user"]);
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +21,12 @@
 	<article id="wrap">
         <section id="menu">
             <div id="button-box">
-                <button id="login-button">로그인</button>
-                <button id="register-button">회원가입</button>
+                <?php if($user !== null): ?>
+                    <button id="logout-button">로그아웃</button>
+                <?php else: ?>
+                    <button id="login-button">로그인</button>
+                    <button id="register-button">회원가입</button>
+                <?php endif;?>
             </div>
         </section>
 		<section id="content">
