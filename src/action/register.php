@@ -10,7 +10,10 @@ if(session_status() == PHP_SESSION_NONE) session_start();
 
 if($_SERVER["REQUEST_METHOD"] !== "POST") header("Location: http://localhost/instagram/src/main.php");
 
-DB::fetch("insert into user_info values(?, ?, ?, ?)", [...array_values($_POST)]);
+$data = [...array_values($_POST)];
+$data[2] = md5($data[2]);
+
+DB::fetch("insert into user_info values(?, ?, ?, ?)", [...array_values($data)]);
 
 alert("회원가입되었습니다");
 move("/instagram/src/main.php");
