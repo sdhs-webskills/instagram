@@ -5,8 +5,9 @@
 
     $user = null;
 
-    if(isset($_SESSOIN["user"]))
+    if(sizeof($_SESSION) > 0) {
         $user = unserialize($_SESSION["user"]);
+    };
 ?>
 
 <!DOCTYPE html>
