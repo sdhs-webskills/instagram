@@ -1,12 +1,16 @@
 <?php
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$wu = 0;
-$wp = 0;
+include_once("../User/DB.php");
+use src\core\DB;
 
 if(sizeof($_POST) > 0) {
-    print_r($_POST);
+    $username = $_POST['user-email'];
+    $password = $_POST['user-password'];
+
+    $result = DB::fetch("select email,name,phone from member where email = ? and password = ? ;", [$username,$password]);
+    session_start();
+    $_SESSION["user"] = $result;
+    echo "<script>location.href = '../'</script>";
 }
 
 

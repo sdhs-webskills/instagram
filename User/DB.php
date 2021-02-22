@@ -1,26 +1,30 @@
 <?php
 
 
-$servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "myDB";
+namespace src\core;
 
+class DB{
+    static $db;
 
-function execute($sql, $data = []) {
+    public function getDB() {
+        self::$db = new \PDO("mysql:host=localhost;port=3306;dbname=myDB;charset=utf8mb4", "root", "");
 
-    $db = new PDO("mysql:host=localhost;", "dbname=myDB;", "charset=utf8mb4;", "root", "");
-    $result = $db->prepare($sql);
-    $result->execute($data);
-    $db=null;
-    return $result;
-}
+        return self::$db;
+    }
 
-function fetch($sql, $data = [])
-{
-    return execute($sql, $data)->fetch(PDO::FETCH_OBJ);
-}
+    public static function fetch($sql, $arr) {
+        $stmt = self::getDB() -> prepare($sql);
+        $stmt -> execute($arr);
+        $result = $stmt;
 
-function fetchAll($sql, $data = []): array {
-    return execute($sql, $data)->fetchAll(PDO::FETCH_OBJ);
-}
+        return $result -> fetch();
+    }
+
+    public static function fetchAll($sql, $arr) {
+        $stmt = self::getDB() -> prepare($sql);
+        $stmt -> execute($arr);
+        $result = $stmt;
+
+        return $result -> fetchAll();
+    }
+};
