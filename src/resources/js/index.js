@@ -1,7 +1,20 @@
 const hearts = document.querySelectorAll(".heart");
 const ids = JSON.parse(localStorage.getItem("heart")) ?? {id: []};
+
+const getHeart = index => {
+    let $heart;
+
+    hearts.forEach(heart => {
+        const heartId = heart?.parentNode.parentNode.parentNode.dataset.id;
+
+        if(heartId === index) $heart = heart;
+    });
+
+    return $heart;
+};
+
 ids["id"].forEach(id => {
-    const heart = hearts[id];
+    const heart = getHeart(id);
     const heartSpan = heart.parentNode.children[1];
 
     heart.src = "resources/images/heart_red.png";
@@ -34,23 +47,13 @@ const heartAnimation = () => {
         );
     }, 1350);
 };
-const getContentIndex = (content) => {
-    let contentIndex;
-
-    [...document.querySelectorAll(".content")].forEach((element, index) => {
-        if(element === content)
-            return contentIndex = index;
-    });
-
-    return contentIndex;
-};
 
 document.body.onclick = ({ target }) => {
     if(!target.classList.contains("heart")) return false;
 
     const content = target?.parentNode?.parentNode?.parentNode;
     const heartSpan = target.parentNode.children[1];
-    const contentIndex = getContentIndex(content);
+    const contentIndex = content.dataset.id;
 
     if(findFromLocalStorage(contentIndex) < 0) {
         heartAnimation();
@@ -76,7 +79,7 @@ document.body.ondblclick = ({ target }) => {
     const content = target?.parentNode?.parentNode;
     const heartImg = content.children[1].children[1].children[0];
     const heartSpan = content.children[1].children[1].children[1];
-    const contentIndex = getContentIndex(content);
+    const contentIndex = content.dataset.id;
 
     heartAnimation();
 
