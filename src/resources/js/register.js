@@ -19,7 +19,7 @@ $form.addEventListener("submit", event => {
 
     const checkResult = dataValidateCheck(event.target);
     for(let i = 0; i < checkResult.length; i++) {
-        return alert(`${checkResult[i].placeholder}칸이 형식에 맞지 않습니다`);
+        return alert(`${document.querySelectorAll("indput")[i].placeholder}칸이 형식에 맞지 않습니다`);
     }
 
     return $form.submit();
