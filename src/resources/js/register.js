@@ -24,3 +24,10 @@ $form.addEventListener("submit", event => {
 
     return $form.submit();
 });
+
+const $email = $form.children[0];
+$email.addEventListener("blur", async () => {
+    const checkResult = await emailDuplicateCheck($email.value);
+
+    if(checkResult === "duplicate") return $email.focus();
+});
