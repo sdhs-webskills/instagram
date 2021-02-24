@@ -1,15 +1,18 @@
 <?php
 
-include_once("../User/DB.php");
-use src\core\DB;
+include_once("../DB/DB.php");
+include_once("../Model/user.php");
+use  DB\DB;
 
 if(sizeof($_POST) > 0) {
     $username = $_POST['user-email'];
     $password = $_POST['user-password'];
 
-    $result = DB::fetch("select email,name,phone from member where email = ? and password = ? ;", [$username,$password]);
+    $result = DB::fetch("select * from member where email = ? and password = ? ;", [$username,$password]);
     session_start();
-    $_SESSION["user"] = $result;
+    $user = new User($result[0], $result[1], $result[2], $result[3]);
+    $_SESSION["user"] = serialize($user);
+
     echo "<script>location.href = '../'</script>";
 }
 

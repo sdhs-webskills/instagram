@@ -1,7 +1,10 @@
 <?php
-
+include_once("Model/user.php");
 session_start();
-
+$user = null;
+if(isset($user)){
+$user = unserialize($_SESSION["user"]);
+}
 ?>
 
 <!DOCTYPE html>
