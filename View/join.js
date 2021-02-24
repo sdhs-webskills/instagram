@@ -4,11 +4,29 @@ window.onload = function (){
     let regExp = new RegExp(/[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}/);
     let regExp2 = new RegExp(/[a-zA-Z0-9]*@[0-9a-zA-Z]([\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}/);
     const formBtn = document.querySelector(".form-button");
+
+    const form = new FormData();
+
     document.forms[0].addEventListener("submit", event => {
         event.preventDefault();
 
-        console.log(email.value.match(regExp));
-        console.log(email.value.match(regExp2));
+        // console.log(email.value.match(regExp));
+        // console.log(email.value.match(regExp2));
+
+
+        form.append("email", email.value);
+        fetch("duplicate.php", {
+            method : "POST",
+            dataType : "json",
+            body : form
+        })
+
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(data) {
+                console.log(data.message);
+            })
     });
 
     // email.addEventListener("keyup", ({ key }) => {
@@ -26,7 +44,14 @@ window.onload = function (){
             alert("이메일이 형식에 맞지 않습니다.");
         }
 
+    });
 
-    })
+    // document.forms[0].addEventListener("submit", () => {
+    //
+    // })
+
+
+
+
 }
 
