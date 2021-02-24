@@ -1,12 +1,12 @@
 <?php
 
 
-namespace src\core;
+namespace DB;
 
 class DB{
-    static $db;
+    static \PDO $db;
 
-    public function getDB() {
+    public function getDB():\PDO {
         self::$db = new \PDO("mysql:host=localhost;port=3306;dbname=myDB;charset=utf8mb4", "root", "");
 
         return self::$db;
@@ -20,7 +20,7 @@ class DB{
         return $result -> fetch();
     }
 
-    public static function fetchAll($sql, $arr) {
+    public static function fetchAll($sql, $arr): array {
         $stmt = self::getDB() -> prepare($sql);
         $stmt -> execute($arr);
         $result = $stmt;
