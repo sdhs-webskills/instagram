@@ -48,7 +48,7 @@
 - css animation
 - javascript localStorage
 - php mysqli, md5
-- mysql password encryption
+- mysql password encryption, select limit
 
 ## 추가정보
 - 브라우저 스펙 : 크롬 80이상
