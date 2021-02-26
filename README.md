@@ -23,7 +23,9 @@
 
 ### 🎯 (5) 프로필
 - 프로필의 기초 사진은 images폴더의 basic_img이다.
-- 프로필 주인의 게시글 목록이 조회된다.
+- 프로필 주인의 게시물 목록이 조회된다.
+  - 게시물 목록은 9개 까지만 표시한다.
+  - 게시물의 개수가 9개를 넘을 경우 더보기 버튼을 추가한다.
 - 게시물 개수와 팔로워, 팔로우 수가 표시된다.
 - __[프로필 주인]__
     - 프로필이미지에 마우스를 가져다대면 변경버튼이 뜬다.
@@ -46,7 +48,7 @@
 - css animation
 - javascript localStorage
 - php mysqli, md5
-- mysql password encryption
+- mysql password encryption, select limit
 
 ## 추가정보
 - 브라우저 스펙 : 크롬 80이상
