@@ -25,6 +25,7 @@ body{ background: #ededed; }
 	height: 100%;
 	border-radius: 50%;
 }
+#introduction{
 #introduction-box{
 	width: 87%;
 	height: 100%;
@@ -42,6 +43,13 @@ body{ background: #ededed; }
 	right: 0;
 	bottom: 0;
 	overflow-y: scroll;
+	padding: 10px;
+	position: relative;
+}
+#introduction > div{
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
 
 #button-box {
