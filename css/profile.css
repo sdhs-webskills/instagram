@@ -25,12 +25,23 @@ body{ background: #ededed; }
 	height: 100%;
 	border-radius: 50%;
 }
-#introdution{
+#introduction-box{
 	width: 87%;
 	height: 100%;
 	border: 1px solid black;
 	box-sizing: border-box;
-	padding: 10px;
+	position: relative;
+	user-select: none;
+}
+#introduction-box > #introduction{
+	width: 100%;
+	height: 100%;
+}
+#introduction-box > #introduction-button-box{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	overflow-y: scroll;
 }
 
 #button-box {
