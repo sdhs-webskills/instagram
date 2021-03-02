@@ -34,3 +34,8 @@ if($_GET){
 </body>
 </html>
 
+
+</body>
+</html>
+
+<?php

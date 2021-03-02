@@ -15,6 +15,10 @@
         <div id="introdution" contenteditable="true">
 
         </div>
+        <section id="button-box">
+            <button id="profile-change">변경하기</button>
+            <div class="blind"></div>
+        </section>
     </section>
     <section id="contents">
         <div class="content">
