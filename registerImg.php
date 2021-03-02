@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/registerImg.css">
-    <script src="View/registerImg.js"></script>
+    <script src="./View/registerImg.js"></script>
 </head>
 <body>
     <form action="">
         <div id="register-image">
+            <img src="./images/2.jpg" alt="">
         <input type="file">
         </div>
             <button id="register-button">등록</button>
