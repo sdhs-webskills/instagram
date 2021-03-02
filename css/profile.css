@@ -44,12 +44,6 @@ body{ background: #ededed; }
 	bottom: 0;
 	overflow-y: scroll;
 	padding: 10px;
-	position: relative;
-}
-#introduction > div{
-	position: absolute;
-	right: 0;
-	bottom: 0;
 }
 
 #button-box {
