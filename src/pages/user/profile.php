@@ -11,9 +11,20 @@
         <div id="profile-img">
             <img src="../../resources/images/basic_img.jpg" alt="">
         </div>
-        <div id="introdution" contenteditable="true">
-
+        <div id="introduction-box">
+            <div id="introduction" contenteditable="false">
+                아직 자기소개를 작성하지 않았습니다.
+            </div>
+            <div id="introduction-button-box">
+                <button id="edit">수정</button>
+                <button id="save">저장</button>
+                <button id="reset">초기화</button>
+            </div>
         </div>
+        <section id="button-box">
+            <button id="profile-change">변경하기</button>
+            <div class="blind"></div>
+        </section>
     </section>
     <section id="contents">
         <div class="content">
