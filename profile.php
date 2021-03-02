@@ -12,14 +12,17 @@
         <div id="profile-img">
             <img src="images/basic_img.jpg" alt="">
         </div>
-        <div id="introdution" contenteditable="true">
-
+        <div id="introduction" contenteditable="true">
+            아직 자기소개를 작성하지 않았습니다.
         </div>
+
         <section id="button-box">
             <button id="profile-change">변경하기</button>
             <div class="blind"></div>
         </section>
     </section>
+
+    <input type="file">
     <section id="contents">
         <div class="content">
             <div class="content-picture-box">
