@@ -34,6 +34,12 @@ body{ background: #ededed; }
 	border: 1px solid black;
 	box-sizing: border-box;
 	padding: 10px;
+	position: relative;
+}
+#introduction > div{
+	position: absolute;
+	right: 0;
+	bottom: 0;
 	overflow-y: scroll;
 }
 #introduction::-webkit-scrollbar { display: none; }
@@ -48,8 +54,6 @@ body{ background: #ededed; }
 	display: none;
 }
 #button-box:hover{ display: block; }
-
-
 #profile-change{
 	height: 30px;
 	background: #666;
