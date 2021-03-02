@@ -12,9 +12,10 @@
         <div id="profile-img">
             <img src="images/basic_img.jpg" alt="">
         </div>
-        <div id="introduction" contenteditable="false">
-            아직 자기소개를 작성하지 않았습니다.
-
+        <div id="introduction-box">
+            <div id="introduction" contenteditable="false">
+                아직 자기소개를 작성하지 않았습니다.
+            </div>
             <div id="introduction-button-box">
                 <button id="edit">수정</button>
                 <button id="save">저장</button>
