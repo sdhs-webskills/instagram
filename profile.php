@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>profile</title>
     <link rel="stylesheet" href="css/profile.css">
+    <script src="View/profile.js"></script>
 </head>
 <body>
 <article id="wrap">
@@ -21,7 +22,19 @@
                 <img src="images/1.jpg" alt="" class="content-picture">
             </div>
         </div>
+        <div class="content">
+            <div class="content-picture-box">
+                <img src="images/1.jpg" alt="" class="content-picture">
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-picture-box">
+                <img src="images/1.jpg" alt="" class="content-picture">
+            </div>
+        </div>
     </section>
 </article>
 </body>
 </html>
+
+<?php
