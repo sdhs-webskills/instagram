@@ -17,4 +17,3 @@ if($method === "POST"){
 
     print_r(json_encode(array("message" => $_POST["img"])));
 }
-

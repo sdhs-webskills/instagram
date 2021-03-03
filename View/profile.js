@@ -7,15 +7,12 @@ window.onload = function() {
     const $edit = document.querySelector("#edit");
     const $save = document.querySelector("#save");
     const $reset = document.querySelector("#reset");
-    const $upload = document.querySelector("#upload");
 
     $profileChange.addEventListener("click", () => {
         $inputFile.click();
     });
 
-    $upload.addEventListener("click", () => {
-        $inputFile.click();
-    })
+
     const file_type_check = img => img.match(new RegExp(/\.png|\.jpg|\.jpeg/));
 
     const readFile = file => {
@@ -35,9 +32,9 @@ window.onload = function() {
         formData.append("img", selectedFile);
 
         const imagePath = await fetch("insertImage.php", {
-            method: 'POST',
-            dataType: "json",
-            body: formData
+            method: 'POST', // POST 로 처리한다.
+            dataType: "json", // 데이터를 받는형식을 JSON 형식으로 받는다.
+            body: formData // body 는 객체만 받을수 있다.
         })
             .then(res => res.json())
             .then(data => data.path);
@@ -73,7 +70,7 @@ window.onload = function() {
         };
 
         if(target.id === "save") {
-            $introductionButtonBox.innerHTML = `<button id="edit">수정</button>`;
+            $introductionButtonBox.innerHTML = `<button id="edit">수정</button> <button id="reset">초기화</button>`;
 
             return $introduction.contentEditable = false;
         };

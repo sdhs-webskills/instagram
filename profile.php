@@ -1,8 +1,8 @@
 <?php
-    session_start();
+    session_start(); // 세션 활성화
     include_once("Model/user.php");
 
-    $user = unserialize($_SESSION["user"]);
+    $user = unserialize($_SESSION["user"]); // 세션에 있는 유저를 받아옴
 ?>
 
 <!DOCTYPE html>
