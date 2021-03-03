@@ -7,18 +7,54 @@ window.onload = function() {
     const $edit = document.querySelector("#edit");
     const $save = document.querySelector("#save");
     const $reset = document.querySelector("#reset");
+    const $upload = document.querySelector("#upload");
 
     $profileChange.addEventListener("click", () => {
         $inputFile.click();
     });
 
+    $upload.addEventListener("click", () => {
+        $inputFile.click();
+    })
     const file_type_check = img => img.match(new RegExp(/\.png|\.jpg|\.jpeg/));
 
-    $inputFile.addEventListener("change", () => {
+    const readFile = file => {
+        return new Promise(resolve => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+
+            fileReader.onload = ({ target}) => {
+                resolve(target.result);
+            };
+        });
+    };
+
+    $inputFile.addEventListener("change", async () => {
         const selectedFile = $inputFile.files[0];
+        const formData = new FormData();
+        formData.append("img", selectedFile);
+
+        const imagePath = await fetch("insertImage.php", {
+            method: 'POST',
+            dataType: "json",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => data.path);
 
         if(!selectedFile) return false;
         if(!file_type_check(selectedFile.name)) return alert("이미지(jpg, jpeg, png)만 가능합니다.");
+
+        const profileImageChangeForm = new FormData();
+        profileImageChangeForm.append("img", imagePath);
+
+        fetch("changeprofilerequest.php", {
+            method: 'POST',
+            dataType: "json",
+            body: profileImageChangeForm
+        })
+            .then(res => res.json())
+            .then(data => data);
 
         $profileImage.src = URL.createObjectURL(selectedFile);
     });

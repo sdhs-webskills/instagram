@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include_once("Model/user.php");
+
+    $user = unserialize($_SESSION["user"]);
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,7 +17,7 @@
 <article id="wrap">
     <section id="profile">
         <div id="profile-img">
-            <img src="images/basic_img.jpg" alt="">
+            <img src="<?= $user -> getImage() ?>" alt="">
         </div>
         <div id="introduction-box">
             <div id="introduction" contenteditable="false">
@@ -51,3 +58,4 @@
 </html>
 
 <?php
+
