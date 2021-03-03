@@ -5,13 +5,15 @@ class user{
     private string $name;
     private string $password;
     private string $phone;
+    private string $img;
 
-    public function __construct($email, $name, $password, $phone)
+    public function __construct($email, $name, $password, $phone, $img)
     {
         $this -> email = $email;
         $this -> name = $name;
         $this -> password = $password;
         $this -> phone = $phone;
+        $this -> img = $img;
     }
 
     public function getEmail():string {
@@ -23,6 +25,10 @@ class user{
     }
     public function getPhone(): string{
         return $this -> phone;
+    }
+
+    public function getImage(): string{
+        return $this -> img;
     }
 
     public function setEmail($email) {
@@ -40,6 +46,10 @@ class user{
 
     public function setPhone($phone) {
         $this -> phone = $phone;
+    }
+
+    public function setImage($img) {
+        $this -> img = $img;
     }
 
     public function toString():string {

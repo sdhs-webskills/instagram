@@ -8,9 +8,9 @@ if(sizeof($_POST) > 0) {
     $username = $_POST['user-email'];
     $password = $_POST['user-password'];
 
-    $result = DB::fetch("select * from member where email = ? and password = ? ;", [$username,$password]);
+    $result = DB::fetch("select * from member where email = ? and password = ?;", [$username, md5($password)]);
     session_start();
-    $user = new User($result[0], $result[1], $result[2], $result[3]);
+    $user = new User($result[0], $result[1], $result[2], $result[3], $result[4]);
     $_SESSION["user"] = serialize($user);
 
     echo "<script>location.href = '../'</script>";
@@ -33,7 +33,7 @@ if(sizeof($_POST) > 0) {
 <body>
     <form action="" id="login" method="post">
         <h2>로그인</h2>
-        <input type="email" name="user-email" id="user-email" placeholder="아이디">
+        <input type="email" name="user-email" id="user-email" placeholder="이메일">
         <input type="password" name="user-password" id="user-password" placeholder="비밀번호">
         <input type="submit" id="user-login" value="로그인">
         <?php

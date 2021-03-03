@@ -13,14 +13,12 @@ window.onload = function (){
         // console.log(email.value.match(regExp));
         // console.log(email.value.match(regExp2));
 
-
         form.append("email", email.value);
         fetch("duplicate.php", {
             method : "POST",
             dataType : "json",
             body : form
         })
-
             .then(function(res){
                 return res.json();
             })
