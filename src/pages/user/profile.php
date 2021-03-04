@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>profile</title>
     <link rel="stylesheet" href="../../resources/css/profile.css">
+    <script src="../../resources/js/profile.js" defer></script>
 </head>
 <body>
 <article id="wrap">
