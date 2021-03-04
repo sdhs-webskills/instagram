@@ -16,75 +16,74 @@ const $form = document.forms[0];
 $form.addEventListener("submit", event => {
     event.preventDefault();
 
+    const $email = $form.children[0];
+    $email.addEventListener("blur", async () => {
+        const checkResult = await emailDuplicateCheck($email.value);
 
-    // return $form.submit();
-});
+        if(checkResult === "duplicate") {
+            alert("중복된 이메일입니다");
 
-const $email = $form.children[0];
-$email.addEventListener("blur", async () => {
-    const checkResult = await emailDuplicateCheck($email.value);
+            return $email.focus();
+        };
+        if($email.value === "") {
+            alert("이메일칸은 공백일 수 없습니다");
 
-    if(checkResult === "duplicate") {
-        alert("중복된 이메일입니다");
+            return $email.focus();
+        };
 
-        return $email.focus();
-    };
-    if($email.value === "") {
-        alert("이메일칸은 공백일 수 없습니다");
+        const emailRegExp = new RegExp(/[A-Za-z0-9]*@[A-Za-z]([.]?[a-zA-Z])*\.[a-zA-Z]{2,3}/);
+        const emailValidCheck = $email.value.match(emailRegExp);
 
-        return $email.focus();
-    };
+        if(emailValidCheck === null) {
+            alert("이메일 형식이 맞지 않습니다");
 
-    const emailRegExp = new RegExp(/[A-Za-z0-9]*@[A-Za-z]([.]?[a-zA-Z])*\.[a-zA-Z]{2,3}/);
-    const emailValidCheck = $email.value.match(emailRegExp);
+            return $email.focus();
+        };
 
-    if(emailValidCheck === null) {
-        alert("이메일 형식이 맞지 않습니다");
+        return true;
+    });
 
-        return $email.focus();
-    };
+    const $name = $form.children[1];
+    $name.addEventListener("blur", () => {
+        const nameRegExp = new RegExp(/[ㄱ-ㅎㅏ-ㅣ가-힣A-Za-z]{2,10}/);
+        const nameValidCheck = $name.value.match(nameRegExp);
 
-    return true;
-});
+        if(nameValidCheck === null) {
+            alert("이름칸이 공백입니다");
 
-const $name = $form.children[1];
-$name.addEventListener("blur", () => {
-    const nameRegExp = new RegExp(/[ㄱ-ㅎㅏ-ㅣ가-힣A-Za-z]{2,10}/);
-    const nameValidCheck = $name.value.match(nameRegExp);
+            return $name.focus();
+        };
 
-    if(nameValidCheck === null) {
-        alert("이름칸이 공백입니다");
+        return true;
+    });
 
-        return $name.focus();
-    };
+    const $password = $form.children[2];
+    $password.addEventListener("blur", () => {
+        const passwordRegExp = new RegExp(/[A-Za-z0-9!@#$%^&*()]*/);
+        const passwordValidCheck = $password.value.match(passwordRegExp);
 
-    return true;
-});
+        if(passwordValidCheck === "") {
+            alert("비밀번호칸이 공백입니다");
 
-const $password = $form.children[2];
-$password.addEventListener("blur", () => {
-    const passwordRegExp = new RegExp(/[A-Za-z0-9!@#$%^&*()]*/);
-    const passwordValidCheck = $password.value.match(passwordRegExp);
+            return $password.focus();
+        };
 
-    if(passwordValidCheck === "") {
-        alert("비밀번호칸이 공백입니다");
+        return true;
+    });
 
-        return $password.focus();
-    };
+    const $phone = $form.children[3];
+    $phone.addEventListener("blur", () => {
+        const phoneRegExp = new RegExp(/[0-9]*([-]?[0-9]{3,4}?[-]?[0-9]{4})/);
+        const phoneValidCheck = $phone.value.match(phoneRegExp);
 
-    return true;
-});
+        if(phoneValidCheck === null) {
+            alert("전화번호칸이 공백입니다");
 
-const $phone = $form.children[3];
-$phone.addEventListener("blur", () => {
-    const phoneRegExp = new RegExp(/[0-9]*([-]?[0-9]{3,4}?[-]?[0-9]{4})/);
-    const phoneValidCheck = $phone.value.match(phoneRegExp);
+            return $phone.focus();
+        };
 
-    if(phoneValidCheck === null) {
-        alert("전화번호칸이 공백입니다");
+        return true;
+    });
 
-        return $phone.focus();
-    };
-
-    return true;
+    return $form.submit();
 });
