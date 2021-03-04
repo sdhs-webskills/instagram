@@ -19,7 +19,9 @@ $user = unserialize($_SESSION["user"]);
 <article id="wrap">
     <section id="menu">
         <div id="button-box">
-            <?php  if(isset($_SESSION['user'])): ?>
+            <?php  if(isset($_SESSION["user"])): ?>
+                <a href="profile.php">프로필</a>
+                <a href="registerImg.php">게시글등록</a>
                 <a href="View/logout.php">로그아웃</a>
             <?php else: ?>
                 <a href="View/join.php">회원가입</a>

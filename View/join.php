@@ -28,7 +28,7 @@ if($_GET){
         <input type="email" class="email form-first-input" placeholder="이메일을 입력하세요" autocomplete="off" name="email">
         <input type="password" class="password" placeholder="비밀번호를 입력하세요" name="password">
         <input type="text" class="name" placeholder="이름" name="name">
-        <input type="text" class="phone" placeholder="전화번호" name="phone">
+        <input type="text" class="phone form-last-input" placeholder="전화번호" name="phone">
         <input type="submit" value="회원가입" class="form-button">
     </form>
 </body>

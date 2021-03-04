@@ -1,4 +1,3 @@
-
 window.onload = function (){
     const email = document.querySelector(".email");
     let regExp = new RegExp(/[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}/);
@@ -23,7 +22,7 @@ window.onload = function (){
                 return res.json();
             })
             .then(function(data) {
-                console.log(data.message);
+                data.message;
             })
     });
 
