@@ -70,7 +70,7 @@ window.onload = function() {
         };
 
         if(target.id === "save") {
-            $introductionButtonBox.innerHTML = `<button id="edit">수정</button> <button id="reset">   
+            $introductionButtonBox.innerHTML = `<button id="edit">수정</button> <button id="reset">`
             return $introduction.contentEditable = false;
         };
 
@@ -79,7 +79,9 @@ window.onload = function() {
              아직 자기소개를 작성하지 않았습니다.
             `;
 
-            $introductionButtonBox.innerHTML = `<button id="edit">수정</button>`;
+            $introductionButtonBox.innerHTML = `
+                <button id="edit">수정</button>
+                `;
 
             return $introduction.contentEditable = false;
         };
