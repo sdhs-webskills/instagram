@@ -1,0 +1,106 @@
+*{ margin: 0; padding: 0; user-select: none; }
+html, body{ width: 100%; height: 100%; }
+body{ background: #ededed; }
+
+#wrap{
+	width: 80%;
+	height: 100%;
+	margin-left: 10%;
+}
+
+#profile{
+	width: 100%;
+	height: 20%;
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 0 30px 30px;
+	box-sizing: border-box;
+}
+#profile-img{
+	width: 10%;
+	height: 100%;
+}
+#profile-img:hover ~ #button-box{
+	display: block;
+}
+#profile-img > img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+#introduction-box{
+	width: 87%;
+	height: 100%;
+	border: 1px solid black;
+	box-sizing: border-box;
+	position: relative;
+}
+#introduction-box > #introduction{
+	width: 100%;
+	height: 100%;
+}
+#introduction-box > #introduction-button-box{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	overflow-y: scroll;
+	padding: 10px;
+}
+#introduction-box > #introduction-button-box::-webkit-scrollbar { display: none; }
+
+#button-box {
+	width: 7.7%;
+	height: 13%;
+	border-radius: 50%;
+	position: absolute;
+	top: 3.5%;
+	left: 11.8%;
+	display: none;
+}
+#button-box:hover{ display: block; }
+#profile-change{
+	height: 30px;
+	background: #666;
+	color: white;
+	border: none;
+	padding: 0 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	outline: none;
+	cursor: pointer;
+	z-index: 110;
+}
+#button-box > .blind{ border-radius: 50%; z-index: 100; }
+
+input[type="file"] {
+	display: none;
+}
+
+#contents{
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.content{
+	width: calc(100% / 3);
+	height: calc(100% / 3);
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+.content-picture-box{ height: 100%; }
+.content-picture{
+	width: 100%;
+	height: 100%;
+}
+
+
+.blind{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+}
