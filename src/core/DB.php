@@ -1,6 +1,8 @@
 <?php
 namespace src\core;
 
+use PDO;
+
 class DB{
     static \PDO $db;
 
@@ -15,7 +17,7 @@ class DB{
         $stmt -> execute($arr);
         $result = $stmt;
 
-        return $result -> fetch();
+        return $result -> fetch(PDO::FETCH_ASSOC);
     }
 
     public static function fetchAll(string $sql, array $arr): array {
@@ -23,6 +25,6 @@ class DB{
         $stmt -> execute($arr);
         $result = $stmt;
 
-        return $result -> fetchAll();
+        return $result -> fetchAll(PDO::FETCH_ASSOC);
     }
 };
