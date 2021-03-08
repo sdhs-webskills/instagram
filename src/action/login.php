@@ -13,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"] !== "POST") header("Location: http://localhost/ins
 extract($_POST);
 
 $result = DB::fetch("select * from user_info where email = ? and password = ?", array($email, md5($password)));
+unset($result["password"]);
 
 if($result) {
     $_SESSION["user"] = serialize(new User(...array_values($result)));
